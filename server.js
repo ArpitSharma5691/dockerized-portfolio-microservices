@@ -1,14 +1,26 @@
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
 
-app.get('/about', (req, res) => {
+app.use(cors());
+app.use(express.json());
+
+app.post('/contact', (req, res) => {
+
+  const {name, email, message} = req.body;
+
+  console.log("New Contact Message:");
+  console.log(name, email, message);
+
   res.json({
-    name: "Arpit Sharma",
-    role: "Aspiring DevOps Engineer",
-    description: "Learning Cloud, DevOps, Microservices"
+    status: "Message received",
+    name: name,
+    email: email
   });
+
 });
 
-app.listen(3001, () => {
-  console.log("✅ About Service running on port 3001");
+app.listen(3004, () => {
+  console.log("✅ Contact Service running on port 3004");
 });
