@@ -1,14 +1,17 @@
 const express = require('express');
 const app = express();
 
-app.get('/education', (req, res) => {
-  res.json({
-    degree: "B.Tech CSE",
-    university: "Lovely Professional University",
-    year: "2021–2025"
-  });
+app.get('/skills', (req, res) => {
+  res.json([
+    "C++",
+    "Python",
+    "AWS",
+    "Docker",
+    "Kubernetes",
+    "DevOps"
+  ]);
 });
 
-app.listen(3003, () => {
-  console.log("✅ Education Service running on port 3003");
+app.listen(3002, () => {
+  console.log("✅ Skills Service running on port 3002");
 });
